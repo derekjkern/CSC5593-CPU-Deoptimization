@@ -7,6 +7,7 @@ int main( int argc, char **argv )
 {
     int number_of_fibs = atoi( argv[1] );
     int *fibs = (int*) malloc( number_of_fibs * sizeof( int ) );
+    int i;
 
 	//
 	// Get the fibonacci numbers from the assembly code
@@ -16,7 +17,7 @@ int main( int argc, char **argv )
 	//
 	// Print out the fibonacci numbers.
 	//
-	for ( int i = 0; i < number_of_fibs; i++ ) {
+	for ( i = 0; i < number_of_fibs; i++ ) {
 		printf( "%10d", fibs[i] );
 	}
 	printf( "\n" );
