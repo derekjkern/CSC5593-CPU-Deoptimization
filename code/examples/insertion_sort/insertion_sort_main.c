@@ -3,7 +3,13 @@
 #include <time.h>
 #include <string.h>
 
+#ifdef _WIN64
 void insertion_sort( int*, int ) __attribute__((cdecl));
+#elif _WIN32
+void insertion_sort( int*, int ) __attribute__((cdecl));
+#elif __linux__
+void _insertion_sort( int*, int );
+#endif
 
 void print_usage() {
 	//
@@ -77,7 +83,13 @@ int main( int argc, char **argv ) {
 	//
 	// Send the array off to be sorted by the assembly code
 	//
+#ifdef _WIN64
 	insertion_sort( sorting_array, size_of_array );
+#elif _WIN32
+	insertion_sort( sorting_array, size_of_array );
+#elif __linux__
+	_insertion_sort( sorting_array, size_of_array );
+#endif
 
 	if ( print_output ) {
 		//

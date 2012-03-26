@@ -2,7 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _WIN64
 void eratosthenes( int*, int ) __attribute__((cdecl));
+#elif _WIN32
+void eratosthenes( int*, int ) __attribute__((cdecl));
+#elif __linux__
+void _eratosthenes( int*, int );
+#endif
 
 void print_usage() {
 	//
@@ -59,7 +65,13 @@ int main( int argc, char **argv ) {
 	//
 	// Send the array off to find primes by the assembly code
 	//
+#ifdef _WIN64
 	eratosthenes( prime_array, size_of_array );
+#elif _WIN32
+	eratosthenes( prime_array, size_of_array );
+#elif __linux__
+	_eratosthenes( prime_array, size_of_array );
+#endif
 
 	if ( print_output ) {
 		//
@@ -81,3 +93,4 @@ int main( int argc, char **argv ) {
 
     return 0;
 }
+
