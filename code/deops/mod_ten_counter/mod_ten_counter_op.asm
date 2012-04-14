@@ -20,60 +20,33 @@ do_count:
 	
 	mov	ecx, [edi]		; Get the next value to be counted
 	
-	cmp	ecx, 0	
+	cmp	ecx, 0
 	je	mark_0			; We have a 0
-	
 	nop
-	nop
-	
-	dec	ecx				
+	dec	ecx			
 	je	mark_1			; We have a 1
-	
 	nop
-	nop	
-	
-	dec	ecx		
+	dec	ecx
 	je	mark_2			; We have a 2
-	
 	nop
-	nop	
-	
 	dec	ecx
 	je	mark_3			; We have a 3
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_4			; We have a 4
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_5			; We have a 5
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_6			; We have a 6
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_7			; We have a 7
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_8			; We have a 8
-
 	nop
-	nop	
-
 	dec	ecx
 	je	mark_9			; We have a 9
 			

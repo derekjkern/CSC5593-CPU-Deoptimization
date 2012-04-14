@@ -25,7 +25,7 @@ ASMFLAGS = -f elf -O0
 #
 # Compile any NASM files.
 #
-mod_ten_counter_deop.o: mod_ten_counter_deop.asm
+mod_ten_counter_deop_1.o: mod_ten_counter_deop_1.asm
 	$(ASM) $(ASMFLAGS) $<
 mod_ten_counter_op.o: mod_ten_counter_op.asm
 	$(ASM) $(ASMFLAGS) $<
@@ -33,8 +33,8 @@ mod_ten_counter_op.o: mod_ten_counter_op.asm
 #
 # Link into one of the deoptimized versions
 #
-mod_ten_counter_deop: mod_ten_counter_main.o mod_ten_counter_deop.o
-	gcc $(CLINKFLAGS) mod_ten_counter_deop.o mod_ten_counter_main.o -o mod_ten_counter_deop
+mod_ten_counter_deop_1: mod_ten_counter_main.o mod_ten_counter_deop_1.o
+	gcc $(CLINKFLAGS) mod_ten_counter_deop_1.o mod_ten_counter_main.o -o mod_ten_counter_deop_1
 
 #
 # Link into the optimized version
@@ -45,7 +45,7 @@ mod_ten_counter_op: mod_ten_counter_main.o mod_ten_counter_op.o
 #
 # Define everything that needs to be done
 #
-all:  mod_ten_counter_deop mod_ten_counter_op
+all:  mod_ten_counter_deop_1 mod_ten_counter_op
 
 #
 # Clean up static object files
