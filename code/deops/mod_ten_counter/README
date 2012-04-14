@@ -9,51 +9,53 @@ make -f makefile-linux
 
 -- Notes on mod_ten_counter --
 Here is a snippet from the makefile (linux version):
-	#
-	# Link into one of the deoptimized versions
-	#
-	mod_ten_counter_deop: mod_ten_counter_main.o mod_ten_counter_deop.o
-		gcc $(CLINKFLAGS) mod_ten_counter_deop.o mod_ten_counter_main.o -o mod_ten_counter_deop
+#
+# Link into one of the deoptimized versions
+#
+mod_ten_counter_deop: mod_ten_counter_main.o mod_ten_counter_deop.o
+    gcc $(CLINKFLAGS) mod_ten_counter_deop.o mod_ten_counter_main.o -o mod_ten_counter_deop
 
-	#
-	# Link into the optimized version
-	#
-	mod_ten_counter_op: mod_ten_counter_main.o mod_ten_counter_op.o
-		gcc $(CLINKFLAGS) mod_ten_counter_op.o mod_ten_counter_main.o -o mod_ten_counter_op
+#
+# Link into the optimized version
+#
+mod_ten_counter_op: mod_ten_counter_main.o mod_ten_counter_op.o
+    gcc $(CLINKFLAGS) mod_ten_counter_op.o mod_ten_counter_main.o -o mod_ten_counter_op
 
-Notice that mod_ten_counter_main.o (built from mod_ten_counter_main.c) is being linked into
-both the Optimized and Deoptimized versions.  Thus, we will be building one executable for each version.
-How can we do this?  Well, this C code needs to be the same for both.  Also, it expects the function 
-name to be the same whether within the optimized or deoptimized version.
+Notice that mod_ten_counter_main.o (built from mod_ten_counter_main.c) is being 
+linked into both the Optimized and Deoptimized versions.  Thus, we will be 
+building one executable for each version. How can we do this?  Well, this C 
+code needs to be the same for both.  Also, it expects the function name to be 
+the same whether within the optimized or deoptimized version.
 
 To see, this notice the following.
 
 From mod_ten_counter_main.c:
-	#ifdef _WIN64
-	void mod_ten_counter( int*, int*, int ) __attribute__((cdecl));
-	#elif _WIN32
-	void mod_ten_counter( int*, int*, int ) __attribute__((cdecl));
-	#elif __linux__
-	void _mod_ten_counter( int*, int*, int );
-	#endif
+#ifdef _WIN64
+void mod_ten_counter( int*, int*, int ) __attribute__((cdecl));
+#elif _WIN32
+void mod_ten_counter( int*, int*, int ) __attribute__((cdecl));
+#elif __linux__
+void _mod_ten_counter( int*, int*, int );
+#endif
 
 From mod_ten_counter_deop.asm:
-		global  _mod_ten_counter	; Declare the name of this function
+	global  _mod_ten_counter	; Declare the name of this function
 
-		section .text
-	_mod_ten_counter:
-		push    ebx                     ; Preserve ebx
+	section .text
+_mod_ten_counter:
+	push    ebx                     ; Preserve ebx
 
 From mod_ten_counter_op.asm:
-		global  _mod_ten_counter	; Declare the name of this function
+	global  _mod_ten_counter	; Declare the name of this function
 
-		section .text
-	_mod_ten_counter:
-		push    ebx                     ; Preserve ebx
+	section .text
+_mod_ten_counter:
+	push    ebx                     ; Preserve ebx
 
-From the snippet within mod_ten_counter_main.c, you can see that it simply expects the function 
-to have a certain name.  It doesn't matter whether that function has been deoptimized or not.  It
-must only have a certain name.  As you can see from both versions of the assembly code, both
-the optimized and deoptimized versions have the same name.  This is fine since we will never try
-to link these into the *same* executable; instead, they will also be linked into their own
-executable.
+From the snippet within mod_ten_counter_main.c, you can see that it simply 
+expects the function to have a certain name.  It doesn't matter whether 
+that function has been deoptimized or not.  It must only have a certain 
+name.  As you can see from both versions of the assembly code, both
+the optimized and deoptimized versions have the same name.  This is 
+fine since we will never try to link these into the *same* executable; 
+instead, they will always be linked into their own executable.
