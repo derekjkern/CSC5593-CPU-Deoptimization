@@ -1,0 +1,5 @@
+Make for Windows using the following command:
+make -f makefile-windows
+
+Make for Linux using the following command:
+make -f makefile-linux

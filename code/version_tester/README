@@ -1,0 +1,16 @@
+Make for Windows using the following command:
+make -f makefile-windows
+
+Make for Linux using the following command:
+make -f makefile-linux
+
+
+--- Examples of running version tester ---
+
+> start /realtime /affinity 4 /b version_tester example.test.config
+
+Running Optimized [mod_ten_counter_op] for 200 iterations with arguments: 1000000
+Done running Optimized [mod_ten_counter_op] with an average of 32580444 cycles
+
+Running De-optimized [mod_ten_counter_deop] for 200 iterations with arguments: 1000000
+Done running De-optimized [mod_ten_counter_deop] with an average of 40272502 cycles

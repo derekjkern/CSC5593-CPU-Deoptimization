@@ -1,0 +1,54 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS = -m32
+CLINKFLAGS = -m32
+
+#
+# Setup the NASM Compliler and any flags
+#
+ASM = nasm
+ASMFLAGS = -f elf -O0
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = clean
+
+#
+# Compile the C files
+#
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $< 
+
+#
+# Compile any NASM files.
+#
+mod_ten_counter_deop.o: mod_ten_counter_deop.asm
+	$(ASM) $(ASMFLAGS) $<
+mod_ten_counter_op.o: mod_ten_counter_op.asm
+	$(ASM) $(ASMFLAGS) $<
+
+#
+# Link into one of the deoptimized versions
+#
+mod_ten_counter_deop: mod_ten_counter_main.o mod_ten_counter_deop.o
+	gcc $(CLINKFLAGS) mod_ten_counter_deop.o mod_ten_counter_main.o -o mod_ten_counter_deop
+
+#
+# Link into the optimized version
+#
+mod_ten_counter_op: mod_ten_counter_main.o mod_ten_counter_op.o
+	gcc $(CLINKFLAGS) mod_ten_counter_op.o mod_ten_counter_main.o -o mod_ten_counter_op
+
+#
+# Define everything that needs to be done
+#
+all:  mod_ten_counter_deop mod_ten_counter_op
+
+#
+# Clean up static object files
+#
+clean:  all
+	rm *.o
