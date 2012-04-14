@@ -56,7 +56,7 @@ Done running De-optimized #1 for 10000000 with an average of 228395313 cycles
 
 > start /realtime /affinity 4 /b ..\..\version_tester\version_tester mod_ten_counter.test.dereksmachine.config
 
-n_counter>Running Optimized for 10 for 200 iterations
+Running Optimized for 10 for 200 iterations
 Done running Optimized for 10 with an average of 1155 cycles
 
 Running De-optimized #1 for 10 for 200 iterations
