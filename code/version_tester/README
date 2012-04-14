@@ -1,3 +1,5 @@
+-- Building the version tester --
+
 Make for Windows using the following command:
 make -f makefile-windows
 
@@ -5,7 +7,26 @@ Make for Linux using the following command:
 make -f makefile-linux
 
 
---- Examples of running version tester on Hydra from the mod_ten_counter directory ---
+-- Installing the version tester on Hydra --
+So, we will use the version tester in order to consistently test our deops.
+
+1. Go to your user root directory:  cd ~
+2. Make a bin directory:  mkdir bin
+3. Open your .bash_profile file
+     * Using emacs:  emacs .bash_profile
+     * Using vi:  vi .bash_profile
+4. Add the following at the end of the .bash_profile
+     * This will make it so that executables that are added to your bin directory will be executable from any directory
+PATH=$PATH:$HOME/bin
+export PATH
+5. Save .bash_profile and exit the editor
+6. Take the version_tester code and put it into its own directory.  Call this directory whatever you want
+7. Compile the version tester:  make -f makefile-linux
+8. Copy the executable to your new bin directory:  cp version_tester ~/bin
+9. Now you can run the version tester from anywhere
+
+
+-- Examples of running version tester on Hydra from the mod_ten_counter directory --
 
 > bpsh 10 version_tester mod_ten_counter.test.hydra-node12.config
 
