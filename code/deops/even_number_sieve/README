@@ -1,0 +1,60 @@
+-- Making the executables --
+
+Make for Windows using the following command:
+make -f makefile-windows
+
+Make for Linux using the following command:
+make -f makefile-linux
+
+
+-- Notes on even_number_sieve --
+If you look at the data below, as you can see, the random array performs the 
+worst.  The 12 pattern performs pretty well by comparison.  Now our job is 
+to find some other patterns that slow the Opteron down.  I added the 
+ability to generate random patterns of a certain lengths (so r40 generates 
+a random pattern of length 40).  The pattern is written out (see 
+"Auto-generated pattern:")  We can use this to explore the range of 
+possible patterns.
+
+Below are a number of test runs on my phenom II:
+
+>even_number_sieve
+Invalid arguments to even_number_sieve
+  Format:  even_number_sieve <array size> <pattern>
+  Arguments:
+    array_size - Mandatory - The size of the array to sieve
+    pattern - Mandatory - The pattern to use when building the array
+                          Use 'r' for random and 1 and 2 to specify
+                          an odd/even array pattern.  Example #1: 12
+                          is an odd followed by an even for the length
+                          of the array.  Example #2: r  generates a
+                          fully random array.  Example #3: r10  generates
+                          a random pattern of length 10 and populates the
+                          using it (the pattern is written out)
+    print_output? - Optional - Y/N, show the output?
+                               Default is N.
+
+>even_number_sieve 100000 r
+Cycles=2433920
+
+>even_number_sieve 100000 12
+Cycles=1630459
+
+>even_number_sieve 100000 r40
+Auto-generated pattern: 21112112222212212111122211212212212211122
+Cycles=1590851
+
+>even_number_sieve 100000 r100
+Auto-generated pattern: 211111122112211211221112211222222212122111211221112221222122212211222122221211121212112122121122
+22122
+Cycles=1601550
+
+>even_number_sieve 100000 01001100011100001111000001111100000011111100000000111111110000000011111111000000000
+11111111100000000001111111111
+Cycles=1766145
+
+>even_number_sieve 100000 01001100011100001111
+Cycles=1653048
+
+>even_number_sieve 100000 010011
+Cycles=1635577
