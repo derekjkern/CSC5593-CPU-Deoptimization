@@ -16,7 +16,8 @@ So, we will use the version tester in order to consistently test our deops.
      * Using emacs:  emacs .bash_profile
      * Using vi:  vi .bash_profile
 4. Add the following at the end of the .bash_profile
-     * This will make it so that executables that are added to your bin directory will be executable from any directory
+     * This will make it so that executables that are added to 
+       your bin directory will be executable from any directory
 PATH=$PATH:$HOME/bin
 export PATH
 5. Save .bash_profile and exit the editor
