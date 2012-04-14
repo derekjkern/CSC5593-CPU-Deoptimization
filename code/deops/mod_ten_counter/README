@@ -59,3 +59,41 @@ name.  As you can see from both versions of the assembly code, both
 the optimized and deoptimized versions have the same name.  This is 
 fine since we will never try to link these into the *same* executable; 
 instead, they will always be linked into their own executable.
+
+
+-- Running --
+
+This will run the command on node 10 and restrict the version_tester.exe to 
+core 2.  Within the config, taskset is used to restrict processes to core 3.
+
+> bpsh 10 taskset 0x000000004 version_tester mod_ten_counter.test.hydra-core3.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 638 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 598 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 2472 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 2562 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 19058 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 21039 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 187296 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 206060 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 1876861 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 2059196 cycles
