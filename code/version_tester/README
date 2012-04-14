@@ -5,12 +5,96 @@ Make for Linux using the following command:
 make -f makefile-linux
 
 
---- Examples of running version tester ---
+--- Examples of running version tester on Hydra from the mod_ten_counter directory ---
 
-> start /realtime /affinity 4 /b version_tester example.test.config
+> bpsh 10 version_tester mod_ten_counter.test.hydra-node12.config
 
-Running Optimized [mod_ten_counter_op] for 200 iterations with arguments: 1000000
-Done running Optimized [mod_ten_counter_op] with an average of 32580444 cycles
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 1118 cycles
 
-Running De-optimized [mod_ten_counter_deop] for 200 iterations with arguments: 1000000
-Done running De-optimized [mod_ten_counter_deop] with an average of 40272502 cycles
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 882 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 2740 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 2961 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 19796 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 21566 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 192777 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 209026 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 1937314 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 2099113 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 19544767 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 21099644 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 211357345 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 228395313 cycles
+
+
+--- Examples of running version tester on Windows from the mod_ten_counter directory ---
+
+> start /realtime /affinity 4 /b ..\..\version_tester\version_tester mod_ten_counter.test.dereksmachine.config
+
+n_counter>Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 1155 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 1149 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 4861 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 4758 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 34850 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 43767 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 351330 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 422628 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 3525868 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 4166959 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 38483888 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 43379088 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 469879707 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 515266670 cycles
+
