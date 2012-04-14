@@ -74,7 +74,7 @@ Running De-optimized #1 for 10000000 for 200 iterations
 Done running De-optimized #1 for 10000000 with an average of 228395313 cycles
 
 
---- Examples of running version tester on Windows from the mod_ten_counter directory ---
+-- Examples of running version tester on Windows from the mod_ten_counter directory --
 
 > start /realtime /affinity 4 /b ..\..\version_tester\version_tester mod_ten_counter.test.dereksmachine.config
 
