@@ -1,0 +1,43 @@
+> bpsh 10 taskset 0x000000004 version_tester mod_ten_counter.test.hydra-core3.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 634 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 596 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 2371 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 2556 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 18835 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 21069 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 183000 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 206230 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 1855639 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 2059399 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 19286721 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 20907373 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 207057442 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 224320490 cycles
