@@ -1,0 +1,55 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS =
+CLINKFLAGS =
+
+#
+# Setup the NASM Compliler and any flags
+#
+ASM = yasm
+ASMFLAGS = -f win32 -O0
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = clean
+
+#
+# Compile the C files
+#
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $< 
+
+#
+# Compile any NASM files.
+#
+factorial_op.obj: factorial_op.asm
+	$(ASM) $(ASMFLAGS) $<
+factorial_deop_1.obj: factorial_deop_1.asm
+	$(ASM) $(ASMFLAGS) $<
+
+#
+# Link into the optimized version
+#
+factorial_over_array_op: factorial_over_array_main.o factorial_op.obj
+	gcc $(CLINKFLAGS) factorial_op.obj factorial_over_array_main.o -o factorial_over_array_op.exe
+
+#
+# Link into the de-optimized versions
+#
+factorial_over_array_deop_1: factorial_over_array_main.o factorial_deop_1.obj
+	gcc $(CLINKFLAGS) factorial_deop_1.obj factorial_over_array_main.o -o factorial_over_array_deop_1.exe
+
+#
+# Define everything that needs to be done
+#
+all:  factorial_over_array_op factorial_over_array_deop_1
+
+#
+# Clean up static object files
+#
+clean:  all
+	rm *.o
+	rm *.obj

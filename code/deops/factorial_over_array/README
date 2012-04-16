@@ -1,0 +1,102 @@
+-- Making the executables --
+
+Make for Windows using the following command:
+make -f makefile-windows
+
+Make for Linux using the following command:
+make -f makefile-linux
+
+
+-- Notes on factorial_over_array --
+#
+# Link into the optimized version
+#
+factorial_over_array_op: factorial_over_array_main.o factorial_op.o
+	gcc $(CLINKFLAGS) factorial_op.o factorial_over_array_main.o -o factorial_op
+
+#
+# Link into one of the deoptimized versions
+#
+factorial_over_array_deop_1: factorial_over_array_main.o factorial_deop_1.o
+	gcc $(CLINKFLAGS) factorial_deop_1.o factorial_over_array_main.o -o factorial_deop_1
+
+Notice that factorial_over_array_main.o (built from factorial_over_array_main.c) is being 
+linked into both the Optimized and Deoptimized versions.  Thus, we will be 
+building one executable for each version. How can we do this?  Well, this C 
+code needs to be the same for both.  Also, it expects the function name to be 
+the same whether within the optimized or deoptimized version.
+
+To see, this notice the following.
+
+#ifdef _WIN64
+int factorial( int ) __attribute__((cdecl));
+#elif _WIN32
+int factorial( int ) __attribute__((cdecl));
+#elif __linux__
+int _factorial( int );
+#endif
+
+From factorial_deop_1.asm:
+	global _factorial
+               
+        section .text
+_factorial:
+	mov     eax, [esp+4]            ; Get the integer whose factorial is
+					; being calculated
+
+From factorial_op.asm:
+	global _factorial
+               
+        section .text
+_factorial:
+	mov     eax, [esp+4]            ; Get the integer whose factorial is
+					; being calculated
+
+From the snippet within factorial_over_array_main.c, you can see that it simply 
+expects the function to have a certain name.  It doesn't matter whether 
+that function has been deoptimized or not.  It must only have a certain 
+name.  As you can see from both versions of the assembly code, both
+the optimized and deoptimized versions have the same name.  This is 
+fine since we will never try to link these into the *same* executable; 
+instead, they will always be linked into their own executable.
+
+
+-- Running --
+
+> start /realtime /affinity 4 /b ..\..\version_tester\version_tester factorial_over_array.test.dereksmachine.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 1405 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 1563 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 12899 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 14558 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 126744 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 149406 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 1363566 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 1515925 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 12826146 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 15243250 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 130704194 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 154911428 cycles
