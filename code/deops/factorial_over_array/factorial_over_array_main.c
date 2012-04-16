@@ -123,5 +123,4 @@ int main( int argc, char **argv )
 	free( factorial_array );
 
     return 0;
-
 }
