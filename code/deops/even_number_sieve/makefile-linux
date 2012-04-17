@@ -11,7 +11,12 @@ CLINKFLAGS =
 .DEFAULT_GOAL = all
 
 #
-# Compile the C file
+# Compile the C files
 #
-all: even_number_sieve.c
+even_number_sieve: even_number_sieve.c
 	$(CC) $(CFLAGS) even_number_sieve.c -o even_number_sieve
+
+pattern_explorer: pattern_explorer.c
+	$(CC) $(CFLAGS) pattern_explorer.c -o pattern_explorer
+
+all: even_number_sieve pattern_explorer
