@@ -1,0 +1,43 @@
+> bpsh 6 taskset 0x000000004 version_tester fib.test.hydra-core3.config 
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 188 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 205 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 527 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 682 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 3989 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 5375 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 66195 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 80783 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 688140 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 811411 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 7119225 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 8325903 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 83248192 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 94964939 cycles
+
