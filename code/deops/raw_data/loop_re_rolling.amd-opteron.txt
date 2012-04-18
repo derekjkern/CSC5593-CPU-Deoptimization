@@ -1,0 +1,42 @@
+>bpsh 11 taskset 0x000000008 version_tester loop_re_rolling.test.hydra-core3.config 
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 430 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 619 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 3079 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 4732 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 38773 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 60084 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 446993 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 681329 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 4618018 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 6970346 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 7117040 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 7117040 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 7117040 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 7117040 cycles
