@@ -1,0 +1,56 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS = -m32
+CLINKFLAGS = -m32
+
+#
+# Setup the NASM Compliler and any flags
+#
+ASM = nasm
+ASMFLAGS = -f elf -O0
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = clean
+
+#
+# Compile the C files
+#
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+#
+# Compile any NASM files.
+#
+fib_op.o: fib_op.asm
+	$(ASM) $(ASMFLAGS) $<
+fib_deop.o: fib_deop.asm
+	$(ASM) $(ASMFLAGS) $<
+
+
+#
+# Link into one of the deoptimized versions
+#
+fib_deop: fib_main.o fib_deop.o
+	gcc $(CLINKFLAGS) fib_deop.o fib_main.o -o fib_deop
+
+#
+# Link into the optimized version
+#
+fib_op: fib_main.o fib_op.o
+	gcc $(CLINKFLAGS) fib_op.o fib_main.o -o fib_op
+
+
+#
+# Define everything that needs to be done
+#
+all: fib_op fib_deop
+
+#
+# Clean up static object files
+#
+clean: all
+	rm *.o

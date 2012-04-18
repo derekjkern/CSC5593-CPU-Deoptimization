@@ -1,0 +1,22 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS =
+CLINKFLAGS =
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = all
+
+#
+# Compile the C files
+#
+loop_re_rolling_deop: loop_re_rolling_deop.c
+	$(CC) $(CFLAGS) loop_re_rolling_deop.c -o loop_re_rolling_deop
+
+loop_re_rolling_op: loop_re_rolling_op.c
+	$(CC) $(CFLAGS) loop_re_rolling_op.c -o loop_re_rolling_op
+
+all: loop_re_rolling_deop loop_re_rolling_op

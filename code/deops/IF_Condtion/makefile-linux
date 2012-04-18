@@ -1,0 +1,22 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS =
+CLINKFLAGS =
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = all
+
+#
+# Compile the C files
+#
+IF_Deop: IF_Deop.c
+	$(CC) $(CFLAGS) IF_Deop.c -o IF_Deop
+
+IF_Op: IF_Op.c
+	$(CC) $(CFLAGS) IF_Op.c -o IF_Op
+
+all: IF_Deop IF_Op
