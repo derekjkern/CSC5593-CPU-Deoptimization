@@ -1,4 +1,4 @@
-bpsh 6 taskset 0x000000004 version_tester Compare_two_floats.test.hydra-core3.config 
+>bpsh 6 taskset 0x000000004 version_tester Compare_two_floats.test.hydra-core3.config 
 
 Running Optimized for 10 for 200 iterations
 Done running Optimized for 10 with an average of 11308 cycles
