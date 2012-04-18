@@ -34,7 +34,7 @@ int main( int argc, char **argv ) {
 	FILE *executable_output;
 	char base_executable_run_command[100], executable_run_command[MAX_PATTERN_SIZE + 100], output_buffer[500];
 	char current_pattern[MAX_PATTERN_SIZE], best_patterns[MAX_BEST_PATTERNS][MAX_PATTERN_SIZE];
-	unsigned long total_cycles, current_cycles, best_averages[MAX_BEST_PATTERNS];
+	unsigned long reasonable_cycles, total_cycles, current_cycles, best_averages[MAX_BEST_PATTERNS];
 	int search_count, search_iterations, test_count, test_iterations = TEST_ITERATIONS;
 	int i = 0, pattern_length = 0;
 	int smallest_index = 0;
@@ -94,6 +94,7 @@ int main( int argc, char **argv ) {
 		sprintf( executable_run_command, "%s %s", base_executable_run_command, current_pattern );
 
 		total_cycles = 0;
+		reasonable_cycles = 0;
 		for( test_count = 0; test_count < test_iterations; test_count++ ) {
 			//
 			// Run the executable and capture the output.
@@ -106,7 +107,16 @@ int main( int argc, char **argv ) {
 			fgets( output_buffer, 500, executable_output );
 			fgets( output_buffer, 500, executable_output );
 			sscanf( output_buffer, "Cycles=%lu\n", &current_cycles );
-			total_cycles += current_cycles;
+
+			//
+			// Try to discard bad results.
+			//
+			if ( reasonable_cycles == 0 || current_cycles < reasonable_cycles ) {
+				reasonable_cycles = current_cycles * 1.5;
+				total_cycles += current_cycles;
+			} else {
+				test_count--;
+			}
 
 			//
 			// Be sure to close the stream from the exe output.
