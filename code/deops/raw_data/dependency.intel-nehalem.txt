@@ -1,43 +1,43 @@
 >start /realtime /affinity 4 /b ..\..\version_tester\version_tester load_store_dependency.test.dereksmachine.config
 
 Running Optimized for 10 for 200 iterations
-Done running Optimized for 10 with an average of 208 cycles
+Done running Optimized for 10 with an average of 147 cycles
 
 Running De-optimized #1 for 10 for 200 iterations
-Done running De-optimized #1 for 10 with an average of 229 cycles
+Done running De-optimized #1 for 10 with an average of 159 cycles
 
 Running Optimized for 100 for 200 iterations
-Done running Optimized for 100 with an average of 1175 cycles
+Done running Optimized for 100 with an average of 1050 cycles
 
 Running De-optimized #1 for 100 for 200 iterations
-Done running De-optimized #1 for 100 with an average of 1386 cycles
+Done running De-optimized #1 for 100 with an average of 1280 cycles
 
 Running Optimized for 1000 for 200 iterations
-Done running Optimized for 1000 with an average of 11262 cycles
+Done running Optimized for 1000 with an average of 10467 cycles
 
 Running De-optimized #1 for 1000 for 200 iterations
-Done running De-optimized #1 for 1000 with an average of 14242 cycles
+Done running De-optimized #1 for 1000 with an average of 12077 cycles
 
 Running Optimized for 10000 for 200 iterations
-Done running Optimized for 10000 with an average of 112233 cycles
+Done running Optimized for 10000 with an average of 98192 cycles
 
 Running De-optimized #1 for 10000 for 200 iterations
-Done running De-optimized #1 for 10000 with an average of 143351 cycles
+Done running De-optimized #1 for 10000 with an average of 115709 cycles
 
 Running Optimized for 100000 for 200 iterations
-Done running Optimized for 100000 with an average of 1172103 cycles
+Done running Optimized for 100000 with an average of 946155 cycles
 
 Running De-optimized #1 for 100000 for 200 iterations
-Done running De-optimized #1 for 100000 with an average of 1243635 cycles
+Done running De-optimized #1 for 100000 with an average of 1123048 cycles
 
 Running Optimized for 1000000 for 200 iterations
-Done running Optimized for 1000000 with an average of 11725512 cycles
+Done running Optimized for 1000000 with an average of 9938344 cycles
 
 Running De-optimized #1 for 1000000 for 200 iterations
-Done running De-optimized #1 for 1000000 with an average of 34310055 cycles
+Done running De-optimized #1 for 1000000 with an average of 11143344 cycles
 
 Running Optimized for 10000000 for 200 iterations
-Done running Optimized for 10000000 with an average of 139503738 cycles
+Done running Optimized for 10000000 with an average of 95674842 cycles
 
 Running De-optimized #1 for 10000000 for 200 iterations
-Done running De-optimized #1 for 10000000 with an average of 202947467 cycles
+Done running De-optimized #1 for 10000000 with an average of 112951058 cycles
