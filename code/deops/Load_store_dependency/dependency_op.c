@@ -39,7 +39,6 @@ int main( int argc, char **argv )
 {
     int size_of_array;
     int *test_array = NULL;
-    int *sum_array = NULL;
     int print_output = 0;
     int i;
 
@@ -61,7 +60,6 @@ int main( int argc, char **argv )
 	// Allocate the array
 	//
 	test_array = (int*) malloc( size_of_array * sizeof( int ) );
-	sum_array = (int*) malloc( size_of_array * sizeof( int ) );
 
 	//
 	// Build an array to work on.
@@ -74,10 +72,14 @@ int main( int argc, char **argv )
 	//
 	// Calculate over the array
 	//
-	int temp = test_array[0];
+	int temp_prev = test_array[0], temp1, temp2;
 	unsigned long long start = rdtsc();
-	for ( i = 1; i < size_of_array; i++ ) {
-		sum_array[i] = temp = test_array[i] + temp;
+	for ( i = 3; i < size_of_array; i += 3 ) {
+	  temp2 = test_array[i - 2] + temp_prev;
+	  temp1 = test_array[i - 1] + temp2;
+	  test_array[i - 2] = temp2;
+	  test_array[i - 1] = temp1;
+	  test_array[i] = temp_prev = test_array[i] + temp1;
 	}
 	printf( "Cycles=%d\n", ( rdtsc() - start ) );
 
@@ -88,3 +90,4 @@ int main( int argc, char **argv )
 
     return 0;
 }
+
