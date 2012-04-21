@@ -23,17 +23,16 @@ void print_usage() {
 	//
 	// Use this procedure to let users know the command line format.
 	//
-	printf( "Invalid arguments to if_op\n" );
-	printf( "  Format:  if_deop <array size>\n" );
+	printf( "Invalid arguments to div_vs_mult_deop_1\n" );
+	printf( "  Format:  factorial <array size> [print_output?]\n" );
 	printf( "  Arguments:\n" );
-	printf( "    array_size - Mandatory - The size of the array to test\n" );
+	printf( "    array_size - Mandatory - The size of the array to float test\n" );
 }
 
 int main( int argc, char **argv )
 {
     int size_of_array;
-    float *test_array = NULL;
-    int print_output = 0;
+    unsigned long *test_array = NULL;
     int i;
 
 	//
@@ -46,35 +45,30 @@ int main( int argc, char **argv )
 	}
 
 	//
-	// Get the size of the array.
+	// Get the size of the array.  Subtract 1 since the number 1 is
+	// not to be considered.
 	//
 	size_of_array = atoi( argv[1] ) - 1;
 
 	//
 	// Allocate the array
 	//
-	test_array = (float*) malloc( size_of_array * sizeof( float ) );
+	test_array = (unsigned long*) malloc( size_of_array * sizeof( unsigned long ) );
 
 	//
 	// Build an array to work on.
 	//
 	srand( time( NULL ) );
 	for ( i = 0; i < size_of_array; i++ ) {
-		test_array[i] = (float) ( rand() % 12 ) / ( ( rand() % 2 ) + 1 );
+		test_array[i] = (unsigned long) pow( 2, ( rand() % 12 ) );
 	}
 
 	//
 	// Calculate over the array
 	//
-	int dummy = 0, mod = 0;
 	unsigned long long start = rdtsc();
 	for ( i = 0; i < size_of_array; i++ ) {
-		mod = ( i % 2 );
-		if ( mod == 0 && test_array[i] > 1.5 ) {
-			dummy++;
-		} else {
-			dummy--;
-		}
+		test_array[i] = test_array[i] / 2.0;
 	}
 	printf( "Cycles=%d\n", ( rdtsc() - start ) );
 

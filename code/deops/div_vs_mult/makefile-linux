@@ -1,0 +1,21 @@
+#
+# Setup the C compiler and any flags
+#
+CC = gcc
+CFLAGS =
+CLINKFLAGS =
+
+#
+# Our default goal is to go all the way from start to finish
+#
+.DEFAULT_GOAL = all
+
+#
+# Compile the C files
+#
+div_vs_mult_deop_1: div_vs_mult_deop_1.c
+	$(CC) $(CFLAGS) div_vs_mult_deop_1.c -o div_vs_mult_deop_1
+div_vs_mult_op: div_vs_mult_op.c
+	$(CC) $(CFLAGS) div_vs_mult_op.c -o div_vs_mult_op
+
+all: div_vs_mult_deop_1 div_vs_mult_op

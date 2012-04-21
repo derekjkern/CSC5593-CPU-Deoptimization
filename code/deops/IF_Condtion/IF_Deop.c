@@ -1,13 +1,7 @@
-/* More_costly_IF: the main idea is to show how small change could have a big affect
-on the number of cycles*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
-
-////////////////////////////////////////////////////////////////////////
-// Send the array off to be counted by the assembly code if it is needed
-////////////////////////////////////////////////////////////////////////
+#include <math.h>
 
 #if defined(__i386__)
 static __inline__ unsigned long long rdtsc(void)
@@ -24,94 +18,70 @@ static __inline__ unsigned long long rdtsc(void)
     return ( (unsigned long long)lo)|( ((unsigned long long)hi)<<32 );
 }
 #endif
-  //////////////////////////////////////////////////////////////////
- // Use this procedure to let users know the command line format.//
-//////////////////////////////////////////////////////////////////
 
 void print_usage() {
-printf( "Invalid arguments to More_costly_IF\n" );
-printf( " Format: IF <nuberof iteration> \n" );
-printf( " Arguments:\n" );
-printf( " Number of iteration - Mandatory \n" );
+	//
+	// Use this procedure to let users know the command line format.
+	//
+	printf( "Invalid arguments to if_deop\n" );
+	printf( "  Format:  if_deop <array size>\n" );
+	printf( "  Arguments:\n" );
+	printf( "    array_size - Mandatory - The size of the array to test\n" );
 }
-///////////////////////////////////////////////////////////////////
 
-
-
-	int sum;
-	
-	int Count_numbers( int a)
-
-	{
-		sum+=a;
-	}
-
-	
-///////////////////////////////////////////////////////////////
-int main( int argc, char **argv ) 
+int main( int argc, char **argv )
 {
-	/*public int count=0;
-	public int b;*/
-	unsigned int i,j,k;
-    int numberof_iteration;
+    int size_of_array;
+    float *test_array = NULL;
     int print_output = 0;
-	unsigned long long pstart = rdtsc();
-	unsigned long long result, result1, result2,result3;
-	char c;
-	numberof_iteration = atoi( argv[1] );
+    int i;
 
-	int count=0;
+	//
+	// If we don't have enough parameters, then let the user know
+	//
+	if ( argc < 2 ) {
+		print_usage();
 
-	if ( argc < 2 )    //to check the validity of the argument
-	{
-	print_usage();
-
-	exit( 1 );
+		exit( 1 );
 	}
 
-	
-	void check_time()
-	{
-		
-								pstart = rdtsc();
-								for (i = 0; i <numberof_iteration ; i++)
-									{
-										//less possible condition first
-										if (count==8 || count<numberof_iteration )
-											{
-												
-												Count_numbers(i);
-												count++;
-										    }
-										else
-											count++;
-										
-									}	
-							
-								result=rdtsc()-pstart;
-								printf( "Cycles=%d\n", result );
-				/*
-								pstart = rdtsc();
-	
-								for (j = 0; j <numberof_iteration ; j++)
-									{
-										//more possible scenario first
-										if (count<numberof_iteration||count==8)
-											{
-												
-												Count_numbers(i);
-												count++;
-										    }
-										else
-											count++;
-									}
-								result1=rdtsc()-pstart;
-								printf( "Cycles=%d\n",result1 );*/
-						
+	//
+	// Get the size of the array.
+	//
+	size_of_array = atoi( argv[1] ) - 1;
+
+	//
+	// Allocate the array
+	//
+	test_array = (float*) malloc( size_of_array * sizeof( float ) );
+
+	//
+	// Build an array to work on.
+	//
+	srand( time( NULL ) );
+	for ( i = 0; i < size_of_array; i++ ) {
+		test_array[i] = (float) ( rand() % 12 ) / ( ( rand() % 2 ) + 1 );
 	}
 
+	//
+	// Calculate over the array
+	//
+	int dummy = 0, mod = 0;
+	unsigned long long start = rdtsc();
+	for ( i = 0; i < size_of_array; i++ ) {
+		mod = ( i % 2 );
+		if ( test_array[i] > 1.5 && mod == 0 ) {
+			dummy++;
+		} else {
+			dummy--;
+		}
+	}
+	printf( "Cycles=%d\n", ( rdtsc() - start ) );
 
-	check_time();
+	//
+	// Free the array
+	//
+	free( test_array );
 
-	
+    return 0;
 }
