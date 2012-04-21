@@ -2,7 +2,7 @@
 # Setup the C compiler and any flags
 #
 CC = gcc
-CFLAGS =
+CFLAGS = -lm
 CLINKFLAGS =
 
 #
