@@ -34,7 +34,7 @@ Running Optimized for 1000000 for 200 iterations
 Done running Optimized for 1000000 with an average of 15038580 cycles
 
 Running De-optimized #1 for 1000000 for 200 iterations
-Done running De-optimized #1 for 1000000 with an average of 16026139 cycles
+Done running De-optimized #1 for 1000000 with an average of 16026139 cycles 
 
 Running Optimized for 10000000 for 200 iterations
 Done running Optimized for 10000000 with an average of 150191253 cycles
