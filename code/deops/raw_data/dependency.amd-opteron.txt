@@ -1,43 +1,43 @@
 >bpsh 11 taskset 0x000000004 version_tester load_store_dependency.test.hydra-core3.config
 
 Running Optimized for 10 for 200 iterations
-Done running Optimized for 10 with an average of 285 cycles
+Done running Optimized for 10 with an average of 232 cycles
 
 Running De-optimized #1 for 10 for 200 iterations
-Done running De-optimized #1 for 10 with an average of 290 cycles
+Done running De-optimized #1 for 10 with an average of 319 cycles
 
 Running Optimized for 100 for 200 iterations
-Done running Optimized for 100 with an average of 1497 cycles
+Done running Optimized for 100 with an average of 1344 cycles
 
 Running De-optimized #1 for 100 for 200 iterations
-Done running De-optimized #1 for 100 with an average of 1641 cycles
+Done running De-optimized #1 for 100 with an average of 2392 cycles
 
 Running Optimized for 1000 for 200 iterations
-Done running Optimized for 1000 with an average of 13644 cycles
+Done running Optimized for 1000 with an average of 12573 cycles
 
 Running De-optimized #1 for 1000 for 200 iterations
-Done running De-optimized #1 for 1000 with an average of 15363 cycles
+Done running De-optimized #1 for 1000 with an average of 22431 cycles
 
 Running Optimized for 10000 for 200 iterations
-Done running Optimized for 10000 with an average of 135473 cycles
+Done running Optimized for 10000 with an average of 123940 cycles
 
 Running De-optimized #1 for 10000 for 200 iterations
-Done running De-optimized #1 for 10000 with an average of 151084 cycles
+Done running De-optimized #1 for 10000 with an average of 203120 cycles
 
 Running Optimized for 100000 for 200 iterations
-Done running Optimized for 100000 with an average of 1360870 cycles
+Done running Optimized for 100000 with an average of 1246782 cycles
 
 Running De-optimized #1 for 100000 for 200 iterations
-Done running De-optimized #1 for 100000 with an average of 1531134 cycles
+Done running De-optimized #1 for 100000 with an average of 2033490 cycles
 
 Running Optimized for 1000000 for 200 iterations
-Done running Optimized for 1000000 with an average of 13821943 cycles
+Done running Optimized for 1000000 with an average of 12760103 cycles
 
 Running De-optimized #1 for 1000000 for 200 iterations
-Done running De-optimized #1 for 1000000 with an average of 15478214 cycles
+Done running De-optimized #1 for 1000000 with an average of 20942084 cycles
 
 Running Optimized for 10000000 for 200 iterations
-Done running Optimized for 10000000 with an average of 149596445 cycles
+Done running Optimized for 10000000 with an average of 138529216 cycles
 
 Running De-optimized #1 for 10000000 for 200 iterations
-Done running De-optimized #1 for 10000000 with an average of 168487739 cycles
+Done running De-optimized #1 for 10000000 with an average of 220027895 cycles
