@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -77,43 +76,27 @@ int main( int argc, char **argv )
 	void check_time()
 	{
 		
-								pstart = rdtsc();
-								for (i = 0; i <numberof_iteration ; i++)
-									{
-										//More costly condition
+	pstart = rdtsc();
+	for (i = 0; i <numberof_iteration ; i++)
+		{
+			//More costly condition
 
-										if (f1<=f2)
-											{
-												Count_numbers(i);
-												count++;
-										    }
-										else
-											count++;
+			if (f1<=f2)
+			{
+				Count_numbers(i);
+				count++;
+		        }
+			else
+			count++;
 										
-									}	
+			}	
 								
-								result=rdtsc()-pstart;
-								printf( "Cycles=%d\n", result );
+			result=rdtsc()-pstart;
+			printf( "Cycles=%d\n", result );
 		
-								pstart = rdtsc();
+			pstart = rdtsc();
 	
-								/*for (j = 0; j <numberof_iteration ; j++)
-									{
-										//Less costly condition
-									
-										if (FLOAT2INTCAST(t)<=0)
-											{
-												
-												Count_numbers(i);
-												count++;
-										    }
-										else
-											count++;
-									}
-								result1=rdtsc()-pstart;
-								printf( "Cycles=%d\n",result1 );*/
-						
-						
+								
 
 	}
 
