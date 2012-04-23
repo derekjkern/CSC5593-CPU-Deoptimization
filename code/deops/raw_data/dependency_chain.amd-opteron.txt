@@ -1,0 +1,43 @@
+>bpsh 10 taskset 0x000000004 version_tester dependency_chain.test.hydra-core3.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 226 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 269 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 699 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 1540 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 5535 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 14392 cycles
+
+Running Optimized for 10000 for 200 iterations
+Done running Optimized for 10000 with an average of 54472 cycles
+
+Running De-optimized #1 for 10000 for 200 iterations
+Done running De-optimized #1 for 10000 with an average of 141975 cycles
+
+Running Optimized for 100000 for 200 iterations
+Done running Optimized for 100000 with an average of 564834 cycles
+
+Running De-optimized #1 for 100000 for 200 iterations
+Done running De-optimized #1 for 100000 with an average of 1442006 cycles
+
+Running Optimized for 1000000 for 200 iterations
+Done running Optimized for 1000000 with an average of 6076955 cycles
+
+Running De-optimized #1 for 1000000 for 200 iterations
+Done running De-optimized #1 for 1000000 with an average of 14710021 cycles
+
+Running Optimized for 10000000 for 200 iterations
+Done running Optimized for 10000000 with an average of 67847585 cycles
+
+Running De-optimized #1 for 10000000 for 200 iterations
+Done running De-optimized #1 for 10000000 with an average of 158074316 cycles

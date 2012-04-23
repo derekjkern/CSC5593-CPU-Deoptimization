@@ -1,0 +1,1 @@
+>start /realtime /affinity 4 /b ..\..\version_tester\version_tester dependency_chain.test.dereksmachine.config
