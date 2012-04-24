@@ -1,5 +1,68 @@
-Hey guys,
+-- Making the executables --
 
-This is a place for us to organize our code, papers, etc.  It should help us to coordinate our efforts.  
+Make for Windows using the following command:
+make -f makefile-windows
 
-Derek
+Make for Linux using the following command:
+make -f makefile-linux
+
+
+-- Running in general --
+
+Run all each of the de-optimizations with the version tester software. Each
+de-optimization has its own version tester configuration (like 
+'mod_ten_counter.test.hydra-core3.config' seen below).  Use this configuration
+to run each de-op.  The version tester only takes one argument: the name
+of the version tester config, like mod_ten_counter.test.hydra-core3.config.  
+
+To begin on Hydra, make sure that the version tester is installed within the PATH.
+To run each de-op, change to the directory for the de-op and run the command seen
+below.
+
+-- Running on Hydra --
+
+This will run the command on node 10 and restrict the version_tester.exe to 
+core 2.  Within the config, taskset is used to restrict processes to core 3.
+
+> bpsh 10 taskset 0x000000004 version_tester mod_ten_counter.test.hydra-core3.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 638 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 598 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 2472 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 2562 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 19058 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 21039 cycles
+
+
+-- Running on Windows --
+
+> start /realtime /affinity 4 /b ..\..\version_tester\version_tester mod_ten_counter.test.dereksmachine.config
+
+Running Optimized for 10 for 200 iterations
+Done running Optimized for 10 with an average of 1405 cycles
+
+Running De-optimized #1 for 10 for 200 iterations
+Done running De-optimized #1 for 10 with an average of 1563 cycles
+
+Running Optimized for 100 for 200 iterations
+Done running Optimized for 100 with an average of 12899 cycles
+
+Running De-optimized #1 for 100 for 200 iterations
+Done running De-optimized #1 for 100 with an average of 14558 cycles
+
+Running Optimized for 1000 for 200 iterations
+Done running Optimized for 1000 with an average of 126744 cycles
+
+Running De-optimized #1 for 1000 for 200 iterations
+Done running De-optimized #1 for 1000 with an average of 149406 cycles
